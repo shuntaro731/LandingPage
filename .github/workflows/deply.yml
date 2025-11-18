@@ -20,6 +20,9 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
+      # github用にBASE_PATHの環境変数を設定
+      - name: Set BASE_PATH environment variable
+        run: echo "BASE_PATH=/LandingPage" >> $GITHUB_ENV
       - name: Install, build, and upload your site
         uses: withastro/action@v3
         # with:

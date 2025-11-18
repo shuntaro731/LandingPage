@@ -1,8 +1,8 @@
-import tailwindcss from "@tailwindcss/vite";
 // @ts-check
 import { defineConfig } from "astro/config";
-
 import tailwindcss from "@tailwindcss/vite";
+
+const basePath = process.env.BASE_PATH;
 
 // https://astro.build/config
 export default defineConfig({
@@ -10,5 +10,5 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   site: "https://DesaLabo.github.io",
-  base: 'LandingPage'
+  base: basePath
 });

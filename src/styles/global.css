@@ -1,0 +1,21 @@
+@import "@fontsource/zen-kaku-gothic-new";
+@import "tailwindcss";
+
+@theme {
+  --color-primary-hover: #299ba4;
+}
+
+:root {
+  --font-sans: "Zen Kaku Gothic New", "sans-serif";
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-sans);
+}
+
+h2 {
+  font-weight: bold;
+}

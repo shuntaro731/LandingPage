@@ -1,5 +1,7 @@
 ---
+import { Image } from "astro:assets";
 import Button from "../starwind/button";
+import heroImage from '../../assets/hero-main-visual.svg';
 ---
 
 <section class="h-full flex justify-center items-center">
@@ -22,7 +24,14 @@ import Button from "../starwind/button";
     </div>
     
     <div class="-mr-40 -mt-16">
-      <img src="hero-main-visual.svg" alt="Hero Image" class="w-full">
+      <Image
+        src={heroImage}
+        alt="Hero"
+        width={500}
+        height={300}
+        class="w-full"
+        loading="eager"
+      />
     </div>
 
   </div>

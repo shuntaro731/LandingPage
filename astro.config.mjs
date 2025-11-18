@@ -8,6 +8,11 @@ const basePath = process.env.BASE_PATH;
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
+    resolve: {
+      alias: {
+        '@assets': './src/assets',
+      },
+    }
   },
   site: "https://DesaLabo.github.io",
   base: basePath

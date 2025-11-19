@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Zen Kaku Gothic New";
+  src: local("dummy");
+  font-display: optional;
+}
+
 :root {
   --font-sans: "Zen Kaku Gothic New", "sans-serif";
 }

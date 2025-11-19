@@ -1,0 +1,9 @@
+# Astroがハッシュ化して出力する静的アセット
+/_astro/*
+  Cache-Control: public
+  Cache-Control: max-age=31536000 # 1年間
+
+# その他の静的ファイル (public直下のアセットなど)
+/assets/*
+  Cache-Control: public
+  Cache-Control: max-age=31536000 # 1年間

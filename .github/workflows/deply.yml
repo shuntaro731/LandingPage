@@ -1,13 +1,10 @@
 name: Deploy to GitHub Pages
 
 on:
-  # 'main'ブランチにプッシュされたときに実行
   push:
     branches: [main]
-  # GitHub Actionsタブから手動で実行できるようにする
   workflow_dispatch:
 
-# このジョブがリポジトリのクローンとページデプロイメントの作成を許可するために必要
 permissions:
   contents: read
   pages: write
@@ -20,44 +17,40 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 1. Node.js環境のセットアップ (安定性の向上)
-      - name: Set up Node.js 20
-        uses: actions/setup-node@v4
+      # 1. Node.jsの代わりにBunをセットアップ
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v1 # ★ Bunのセットアップアクションを使用 ★
         with:
-          node-version: 20
-          # 使用しているパッケージマネージャに合わせてキャッシュキーを設定
-          cache: "npm" # npm, pnpm, yarn のいずれかを指定
+          bun-version: latest
 
-      # 2. 依存関係キャッシュの復元/保存 (パフォーマンス向上)
-      # actions/setup-node のキャッシュと重複するため、ここでは省略または調整が必要ですが、
-      # より制御が必要な場合は、こちらを使います。ここでは明示的なキャッシュとして記述します。
-      - name: Restore Node Modules Cache
+      # 2. Bunのロックファイル (bun.lockb) を使ってキャッシュを復元/保存
+      - name: Restore Bun Modules Cache
         uses: actions/cache@v4
         with:
           path: node_modules
-          # package-lock.json を使用してキャッシュを識別
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          # ★ キーを bun.lockb に変更 ★
+          key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lockb') }}
           restore-keys: |
-            ${{ runner.os }}-node-
+            ${{ runner.os }}-bun-
 
-      # 3. GitHub Pages用に BASE_PATH 環境変数を設定
+      # GitHub Pages用に BASE_PATH 環境変数を設定
       - name: Set BASE_PATH environment variable
         run: echo "BASE_PATH=/LandingPage" >> $GITHUB_ENV
 
-      # 4. 依存関係のインストールとサイトのビルド、アーティファクトのアップロード
-      # withastro/action@v3 は、npm install (キャッシュがヒットしない場合) とビルドをまとめて実行します
+      # 3. Astroビルド時にパッケージマネージャをBunに明示的に指定
       - name: Install, build, and upload your site
         uses: withastro/action@v3
+        with:
+          # ★ パッケージマネージャを bun に指定 ★
+          package-manager: bun
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    # デプロイ先の環境を指定
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      # 5. GitHub Pagesへのデプロイ
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

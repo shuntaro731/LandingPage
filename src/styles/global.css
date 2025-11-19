@@ -1,9 +1,4 @@
-@import "@fontsource/zen-kaku-gothic-new";
 @import "tailwindcss";
-
-@theme {
-  --color-primary-hover: #299ba4;
-}
 
 :root {
   --font-sans: "Zen Kaku Gothic New", "sans-serif";
@@ -17,5 +12,6 @@ h4 {
 }
 
 h2 {
+  /* h2 には bold（= 700）が適用されます */
   font-weight: bold;
 }

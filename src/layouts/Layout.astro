@@ -2,7 +2,12 @@
 import Navigation from "../components/layout/Navigation.astro";
 import "../styles/global.css";
 import "../styles/starwind.css";
-import "@fontsource/zen-kaku-gothic-new";
+import "@fontsource/zen-kaku-gothic-new/400.css";
+import "@fontsource/zen-kaku-gothic-new/700.css";
+
+import font400Woff2 from "@fontsource/zen-kaku-gothic-new/files/zen-kaku-gothic-new-japanese-400-normal.woff2?url";
+import font700Woff2 from "@fontsource/zen-kaku-gothic-new/files/zen-kaku-gothic-new-japanese-700-normal.woff2?url";
+// import "@fontsource/zen-kaku-gothic-new";
 ---
 
 <!doctype html>
@@ -10,6 +15,8 @@ import "@fontsource/zen-kaku-gothic-new";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <link rel="preload" href={font400Woff2 as string} as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href={font700Woff2 as string} as="font" type="font/woff2" crossorigin>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>Astro Basics</title>

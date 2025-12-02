@@ -38,7 +38,7 @@
 @layer utilities {
   .text-gradient-primary {
     --text-gradient-start: var(--color-primary-500);
-    --text-gradient-end: : var(--color-primary-300);
+    --text-gradient-end: var(--color-primary-300);
 
     background-image: linear-gradient(
       to right,
@@ -52,7 +52,8 @@
   }
 }
 
-html {
+html,
+body {
   background-color: #f5fbfb;
 }
 

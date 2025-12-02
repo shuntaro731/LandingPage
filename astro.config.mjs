@@ -2,6 +2,8 @@
 import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 
+import preact from "@astrojs/preact";
+
 const basePath = process.env.BASE_PATH;
 
 // https://astro.build/config
@@ -14,6 +16,8 @@ export default defineConfig({
       },
     }
   },
+
   site: "https://DesaLabo.github.io",
-  base: basePath
+  base: basePath,
+  integrations: [preact()]
 });

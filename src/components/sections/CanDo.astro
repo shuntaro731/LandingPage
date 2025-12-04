@@ -14,8 +14,8 @@ import CarouselButton from "../ui/CarouselButton";
       <h3 class="font-bold text-4xl">書く、見る、共有する、<br>できることをのぞく。</h3>
     </div>
     <div class="hidden gap-2.5 mr-36 max-[1000px]:hidden min-[800px]:flex">
-      <CarouselButton direction="prev" disabled client:load />
-      <CarouselButton direction="next" client:load />
+      <CarouselButton direction="prev" disabled client:idle />
+      <CarouselButton direction="next" client:idle />
     </div>
   </div>
   <div class="flex gap-8">

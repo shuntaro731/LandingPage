@@ -1,9 +1,11 @@
 # Astroがハッシュ化して出力する静的アセット
 /_astro/*
-  Cache-Control: public
-  Cache-Control: max-age=31536000 # 1年間
+  Cache-Control: public, max-age=31536000, immutable
 
 # その他の静的ファイル (public直下のアセットなど)
 /assets/*
-  Cache-Control: public
-  Cache-Control: max-age=31536000 # 1年間
+  Cache-Control: public, max-age=31536000, immutable
+
+# HTMLは更新をすぐに反映させたいので、キャッシュしないか短く設定します。
+/*
+  Cache-Control: public, max-age=0, must-revalidate

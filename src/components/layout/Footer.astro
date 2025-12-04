@@ -1,0 +1,58 @@
+---
+import { Image } from "astro:assets";
+import { IconArrowUpRight, IconExternalLink } from "@tabler/icons-preact"
+import people2Illust from "../../assets/people2-illust.svg"
+import logo from '../../../public/logo.svg';
+---
+
+<footer class="pt-28 w-full flex items-center justify-center">
+  <div class="w-full max-w-8xl mx-auto px-4 md:px-8">
+    
+    <div class="bg-primary w-full relative text-white flex flex-col xl:flex-row xl:items-center xl:justify-between p-12 md:p-28 rounded-[68px]">
+      
+      <div class="mb-10 xl:mb-0">
+        <h2 class="text-5xl md:text-6xl font-bold mb-4">Join Desalabo</h2>
+        <div class="mt-4">
+          <ul class="list-disc list-inside">
+            <li>事前登録</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="flex flex-col md:flex-row items-center gap-6 md:gap-12">
+        
+        <div>
+          <h3 class="text-2xl font-bold">
+            デザイナーのための<br />
+            コミュニティのを作る。
+          </h3>
+          <p class="text-base text-primary-50 mt-2 max-w-sm">
+            あなたの事前登録がリリースを加速させます。デザインの裏側まで共有できる世界へ。
+          </p>
+        </div>
+
+        <button class="w-16 h-16 rounded-full bg-white text-primary flex items-center justify-center shrink-0">
+          <IconArrowUpRight width={18} height={18} />
+        </button>
+
+      </div>
+      <Image src={people2Illust} alt="手を広げているイラスト" width={152} height={190} class="absolute -bottom-20 right-0" />
+    </div>
+
+    <div class="flex justify-between items-center pt-32 pb-20">
+      <div class="flex gap-11">
+        <Image
+        src={logo}
+        alt="logo"
+        width={131}
+        height={29}
+        />
+        <a href="">
+          <p class="pt-[3px] font-bold flex gap-2 justify-center items-center">プライバシーポリシー <IconExternalLink width={18} height={18} /></p>
+        </a>
+      </div>
+
+      <p class="pt-0.5">Copyright © 2025 DesaLabo. All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>

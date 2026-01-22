@@ -1,14 +1,7 @@
 @import "tailwindcss";
 
-@font-face {
-  font-family: "Zen Kaku Gothic New";
-  src: local("dummy");
-  font-display: swap;
-}
-
 :root {
-  --font-sans:
-    "Helvetica Neue", Helvetica, Arial, "Zen Kaku Gothic New", sans-serif;
+  --font-sans: "Helvetica Neue", "Zen Kaku Gothic New", sans-serif;
 }
 
 @theme {
@@ -55,6 +48,8 @@
 html,
 body {
   background-color: #f5fbfb;
+  font-feature-settings: "palt";
+  letter-spacing: 0.03em;
 }
 
 h1,
